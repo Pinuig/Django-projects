@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <title>Blog</title>
+</head>
+<body class="m-5 bg-light">
+    <header class="text-center font-weight-bold bg-secondary-subtle text-dark p-3 rounded">
+        <h1>Global Awareness</h1>
+    </header>
+    
+    
+    <section class="mt-4 p-5 bg-secondary rounded text-justify">
+        <h2>{{post.title}}</h2>
+        <img src="{{post.image}}" width="100" height="100" alt="">
+    <p>    
+        <strong>{{post.created_at}}</strong>
+        <strong>{{post.updated_at}}</strong>
+    </p>
+        <p>
+            {{post.content}}
+        </p>
+    </section>
+    
+    
+</body>
+</html>
