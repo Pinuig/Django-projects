@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <title>weather</title>
+</head>
+<body>
+    <section class="vh-100">
+      <form action="" method="POST">
+        {% csrf_token %}
+        <div class="container py-5 h-100 ">
+      
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-md-8 col-lg-6 col-xl-4">
+      
+              <h3 class="mb-4 pb-2 fw-normal">Check the weather forecast</h3>
+      
+              <div class="input-group rounded mb-3">
+                <input type="search" class="form-control rounded" placeholder="City" name="city" aria-label="Search"
+                  aria-describedby="search-addon" />
+                <div class="input-group-btn">
+                  <button type="submit" class="btn btn-default">
+                    <i class="fas fa-search" id="search-addon"></i>
+                  </button>
+                </div>
+                  
+              </div>
+      
+              <div class="mb-4 pb-2">
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label" for="inlineInput">Dewpoint: {{weather_data.dewpoint}} C</label>
+                </div>
+      
+                <div class="form-check form-check-inline">
+                  <label class="form-check-label" for="inlineInput">Temp Fah: {{weather_data.temp_fahrenheit}} F</label>
+                </div>
+              </div>
+      
+              <div class="card shadow-0 border">
+                <div class="card-body p-4">
+      
+                  <h4 class="mb-1 sfw-normal">City: <strong>{{weather_data.city}}</strong></h4>
+                  <h4 class="mb-1 sfw-normal">Country: <strong>{{weather_data.country}}</strong></h4>
+                  <p class="mb-2">Current temperature: <strong>{{weather_data.temperature}}</strong></p>
+                  <p>Max:  <strong> {{weather_data.temp_max}}</strong>,   Min: <strong> {{weather_data.temp_min}}</strong></p>
+      
+                  <div class="d-flex flex-row align-items-center">
+                    <p class="mb-0 me-4">Wind Direction</p>
+                    <span class="fas fa-cloud fa-3x" style="color: palegoldenrod;">{{weather_data.condition}}</span>
+                  </div>
+                  <p>{{weather_data.update}}</p>
+      
+                </div>
+              </div>
+      
+            </div>
+          </div>
+      
+        </div>
+      </form>
+      </section>
+
+      <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    
+</body>
+</html>
